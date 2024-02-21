@@ -7,19 +7,17 @@ const StopWatch = () => {
 
   useEffect(() => {
     let interval;
-    // This effect will run when the component mounts
-    // It starts a timer to update the seconds every second
+
     if (start === true) {
       interval = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
       }, 1000);
     }
 
-    // Clean-up function to clear the interval when the component unmounts
     return () => {
       clearInterval(interval);
     };
-  }, [start]); // The effect will re-run whenever the 'seconds' state changes
+  }, [start]);
 
   const handleButtonClick = () => {
     setStart(true);
