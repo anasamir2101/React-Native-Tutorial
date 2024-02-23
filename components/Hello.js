@@ -1,42 +1,57 @@
-import { View, Text, Button, StyleSheet, Modal } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  StatusBar,
+  Button,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
 import { useState } from 'react';
+
 const Hello = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const HandleModal = () => {
-    setIsModalVisible(!isModalVisible);
-  };
+  const [isStatusbarVisible, setisStatusbarVisible] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 25, fontWeight: 'bold' }}>
-        Simple Hello World
-      </Text>
-      <Button title='Click' color={'blue'} onPress={() => HandleModal()} />
-      <Modal visible={isModalVisible} animationType='slide'>
-        <View style={styles.modal}>
-          <Text style={{ color: 'white', fontSize: 30 }}>
-            Hello React Native
-          </Text>
-          <Button title='Close' color={'blue'} onPress={() => HandleModal()} />
-        </View>
-      </Modal>
+    <View style={Styles.container}>
+      {/* <StatusBar
+        backgroundColor={'green'}
+        barStyle={'dark-content'}
+        hidden={isStatusbarVisible}
+      /> */}
+      {/* <Button
+        title='Visible'
+        onPress={() => setisStatusbarVisible(!isStatusbarVisible)}
+      /> */}
+      {/* <ActivityIndicator
+        size={'extra-large'}
+        color={'black'}
+        animating={false}
+      /> */}
+      <Button
+        title='Click Me'
+        onPress={() =>
+          Alert.alert('Hello World', 'Welcome To React Native', [
+            {
+              text: 'Cancel',
+              onPress: () => console.warn('Cancel is Pressed'),
+            },
+            {
+              text: 'Ok',
+              onPress: () => console.warn('Ok is Pressed'),
+            },
+          ])
+        }
+      />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: 'plum',
     justifyContent: 'center',
-    padding: 60,
-  },
-  modal: {
-    flex: 1,
-    margin: 50,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightblue',
   },
 });
 export default Hello;

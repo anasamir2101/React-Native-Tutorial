@@ -1,48 +1,18 @@
-import {
-  View,
-  StyleSheet,
-  StatusBar,
-  Button,
-  ActivityIndicator,
-  Alert,
-} from 'react-native';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import Hello from './components/Hello';
-import { useState } from 'react';
+import Box from './components/Box';
 
 const App = () => {
-  const [isStatusbarVisible, setisStatusbarVisible] = useState(false);
-
   return (
     <View style={Styles.container}>
-      {/* <StatusBar
-        backgroundColor={'green'}
-        barStyle={'dark-content'}
-        hidden={isStatusbarVisible}
-      /> */}
-      {/* <Button
-        title='Visible'
-        onPress={() => setisStatusbarVisible(!isStatusbarVisible)}
-      /> */}
-      {/* <ActivityIndicator
-        size={'extra-large'}
-        color={'black'}
-        animating={false}
-      /> */}
-      <Button
-        title='Click Me'
-        onPress={() =>
-          Alert.alert('Hello World', 'Welcome To React Native', [
-            {
-              text: 'Ok',
-              onPress: () => console.warn('Ok is Pressed'),
-            },
-            {
-              text: 'Cancel',
-              onPress: () => console.warn('Cancel is Pressed'),
-            },
-          ])
-        }
-      />
+      <StatusBar backgroundColor={'green'} barStyle={'light-content'} />
+      <Box style={{ backgroundColor: 'green', flex: 1 }}>Box 1</Box>
+      <Box style={{ backgroundColor: 'purple', flex: 4 }}>Box 2</Box>
+      <Box style={{ backgroundColor: 'red' }}>Box 3</Box>
+      <Box style={{ backgroundColor: 'blue' }}>Box 4</Box>
+      <Box style={{ backgroundColor: 'yellow' }}>Box 5</Box>
+      <Box style={{ backgroundColor: 'maroon' }}>Box 6</Box>
+      <Box style={{ backgroundColor: 'plum' }}>Box 7</Box>
     </View>
   );
 };
@@ -50,9 +20,9 @@ const App = () => {
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'plum',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 64,
+    borderWidth: 6,
+    borderColor: 'red',
   },
 });
 export default App;
