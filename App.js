@@ -3,7 +3,7 @@ import { View, StyleSheet, StatusBar } from 'react-native';
 // import Easypaisa from './components/Easypaisa';
 // import Dimensions from './components/Dimensions';
 
-import Dimensions from './components/Dimensions';
+import Dimensions from './components/Dimension';
 
 const App = () => {
   return (
