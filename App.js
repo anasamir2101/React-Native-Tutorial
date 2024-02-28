@@ -1,15 +1,19 @@
-import { View, StyleSheet, StatusBar } from 'react-native';
-// import Hello from './components/Hello';
-// import Easypaisa from './components/Easypaisa';
-// import Dimensions from './components/Dimensions';
-
-import Dimensions from './components/Dimension';
+import {
+  View,
+  StyleSheet,
+  StatusBar,
+  Platform,
+  ScrollView,
+} from 'react-native';
+import PokemonCard from './Pokemon_Card_components/components/PokemonCard';
 
 const App = () => {
   return (
     <View style={Styles.container}>
-      <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
-      <Dimensions />
+      <ScrollView>
+        <StatusBar backgroundColor={'grey'} barStyle={'dark-content'} />
+        <PokemonCard />
+      </ScrollView>
     </View>
   );
 };
@@ -17,7 +21,8 @@ const App = () => {
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'plum',
+    backgroundColor: '#f5f5f5',
+    paddingTop: Platform.OS === 'android' ? 20 : 0,
   },
 });
 export default App;
